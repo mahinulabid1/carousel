@@ -1,0 +1,142 @@
+:root {
+    --main-color: #D94436;
+}
+
+/* vertical carousel */
+/* ================================================ */
+.vertical-carousel {
+    height: 780px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    color: #FFFFFF;
+    position: relative;
+}
+
+/* the background of timeline carousel */
+.carousel-bg {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+
+
+
+
+.vertical-carousel>div:last-of-type {
+    width: 70%;
+    position: relative;
+}
+
+
+.timeline-menu {
+    display: flex;
+}
+
+.timeline-menu>.text-container {
+    margin-left: 20px;
+}
+
+.timeline-btn-text {
+    position: absolute;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: -3px;
+}
+
+
+/* the white line with 100% height */
+.vertical-btn-container {
+    height: 100%;
+    width: 1px;
+    background: #3E3D3D;
+    position: relative;
+}
+
+.filler {
+    position: absolute;
+    width: 100%;
+    background: red;
+    height: 18%;
+}
+
+
+
+/* the round buttons */
+.bt {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #3E3D3D;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 400ms;
+}
+
+.bt:hover,
+.bt-active {
+    /* bt-hover call will be added by javascript */
+    height: 24px;
+    width: 24px;
+}
+
+.bt-active {
+    background-color: var(--main-color);
+}
+
+
+.bt:nth-of-type(1),
+.timeline-btn-text:nth-of-type(1) {
+    top: 18%;
+}
+
+.bt:nth-of-type(2),
+.timeline-btn-text:nth-of-type(2) {
+    top: 36%;
+}
+
+.bt:nth-of-type(3),
+.timeline-btn-text:nth-of-type(3) {
+    top: 54%;
+}
+
+.bt:nth-of-type(4),
+.timeline-btn-text:nth-of-type(4) {
+    top: 73%;
+}
+
+
+
+
+.vertical-carousel>.content-section {
+    position: relative;
+}
+
+.timeline-text-container {
+    position: absolute;
+    left: 44%;
+    top: 43%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
+}
+
+.timeline-heading {
+    font-size: 56px;
+    padding: 20px 0;
+    border-bottom: 2px solid var(--main-color);
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.timeline-para {
+    font-size: 16px;
+    line-height: 30px;
+    font-family: 'Roboto', sans-serif;
+}

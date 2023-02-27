@@ -1,0 +1,23 @@
+@import url("./timeline.css");
+
+:root{
+    --main-color: #D94436;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Bebas Neue', cursive;
+}
+
+
+.btn-req{
+    height:40px;
+    width:40px;
+    background-color: red;
+}
+
