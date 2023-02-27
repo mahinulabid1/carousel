@@ -1,8 +1,8 @@
 const timelineBTN = document.querySelectorAll(".bt");
 const filler = document.querySelector(".filler");
 const verticalContentH1 = document.querySelector(".timeline-heading");
-const verticalContentPara =document.querySelector(".timeline-para");
-const Bgimage= document.querySelector(".carousel-bg");
+const verticalContentPara = document.querySelector(".timeline-para");
+const Bgimage = document.querySelector(".carousel-bg");
 
 
 
@@ -55,7 +55,7 @@ for (let i = 0; i < timelineBTN.length; i++) {
             verticalContentH1.textContent = heading;
             verticalContentPara.textContent = para;
             let bgImage = DataSlider.sliderOne.bgImagePath;
-            Bgimage.src=bgImage;
+            Bgimage.src = bgImage;
         }
         else if (ListClass.contains("bt-2")) {
             // COLOR FUNCTION
@@ -74,7 +74,7 @@ for (let i = 0; i < timelineBTN.length; i++) {
             let bgImage = DataSlider.sliderTwo.bgImagePath;
             verticalContentH1.textContent = heading;
             verticalContentPara.textContent = para;
-            Bgimage.src=bgImage;
+            Bgimage.src = bgImage;
 
         }
         else if (ListClass.contains("bt-3")) {
@@ -94,7 +94,7 @@ for (let i = 0; i < timelineBTN.length; i++) {
             let bgImage = DataSlider.sliderThree.bgImagePath;
             verticalContentH1.textContent = heading;
             verticalContentPara.textContent = para;
-            Bgimage.src=bgImage;
+            Bgimage.src = bgImage;
         }
         else if (ListClass.contains("bt-4")) {
             // COLOR FUNCTION
@@ -112,7 +112,7 @@ for (let i = 0; i < timelineBTN.length; i++) {
             let bgImage = DataSlider.sliderFour.bgImagePath;
             verticalContentH1.textContent = heading;
             verticalContentPara.textContent = para;
-            Bgimage.src=bgImage;
+            Bgimage.src = bgImage;
         }
     })
 }
@@ -123,3 +123,162 @@ for (let i = 0; i < timelineBTN.length; i++) {
 
 
 
+
+
+
+// CAROUSEL
+const buttonRight = document.querySelector(".ind-right");
+const buttonLeft = document.querySelector(".ind-left");
+const testContainer = document.querySelector(".test-container");
+const carouselCards = document.querySelectorAll(".carousel-cards");
+const cardTextContainer = document.querySelectorAll(".cards-text-container");
+const indicator= document.querySelectorAll(".carousel-round-btn");
+
+// basic positioning
+for (let i = 0; i < carouselCards.length; i++) {
+    carouselCards[i].style.left = "-110%";
+}
+
+let counter = 110;
+const funcSlideRight = () => {
+    console.log(counter);
+    if (counter <= 0) {
+        counter = 440;
+    }
+    counter = counter - 110;
+    for (let i = 0; i < carouselCards.length; i++) {
+        console.log(counter);
+        carouselCards[i].style.left = "-" + counter + "%";
+    }
+}
+
+const funcSlideLeft = () => {
+    if (counter >= 330) {
+        counter = -110;
+    }
+    counter = counter + 110;
+    for (let i = 0; i < carouselCards.length; i++) {
+        console.log(counter);
+        carouselCards[i].style.left = "-" + counter + "%";
+    }
+}
+
+const funcSlide = () => {
+    if (counter == 0) {
+        carouselCards[0].classList.remove("cards-inactive");
+        carouselCards[1].classList.add("cards-inactive");
+        carouselCards[2].classList.add("cards-inactive");
+        carouselCards[3].classList.add("cards-inactive");
+        
+        // show and hide text content function
+        setTimeout(() => {
+            cardTextContainer[0].classList.remove("d-none");
+            cardTextContainer[1].classList.add("d-none");
+            cardTextContainer[2].classList.add("d-none");
+            cardTextContainer[3].classList.add("d-none");
+        }, 300);
+
+
+        // the indicator sign
+        // indicator[0].classList.add("carousel-round-active");
+        // indicator[1].classList.remove("carousel-round-active");
+        // indicator[2].classList.remove("carousel-round-active");
+        // indicator[3].classList.remove("carousel-round-active");
+    }
+    else if (counter == 110) {
+        carouselCards[0].classList.add("cards-inactive");
+        carouselCards[1].classList.remove("cards-inactive");
+        carouselCards[2].classList.add("cards-inactive");
+        carouselCards[3].classList.add("cards-inactive");
+
+        // show and hide text content function
+        setTimeout(() => {
+            cardTextContainer[0].classList.add("d-none");
+            cardTextContainer[1].classList.remove("d-none");
+            cardTextContainer[2].classList.add("d-none");
+            cardTextContainer[3].classList.add("d-none");
+        }, 300);
+
+        // the indicator sign
+        // indicator[0].classList.remove("carousel-round-active");
+        // indicator[1].classList.add("carousel-round-active");
+        // indicator[2].classList.remove("carousel-round-active");
+        // indicator[3].classList.remove("carousel-round-active");
+    }
+    else if (counter == 220) {
+        carouselCards[0].classList.add("cards-inactive");
+        carouselCards[1].classList.add("cards-inactive");
+        carouselCards[2].classList.remove("cards-inactive");
+        carouselCards[3].classList.add("cards-inactive");
+
+        // show and hide text content function
+        setTimeout(() => {
+            cardTextContainer[0].classList.add("d-none");
+            cardTextContainer[1].classList.add("d-none");
+            cardTextContainer[2].classList.remove("d-none");
+            cardTextContainer[3].classList.add("d-none");
+        }, 300);
+
+        // the indicator sign
+        // indicator[0].classList.remove("carousel-round-active");
+        // indicator[1].classList.remove("carousel-round-active");
+        // indicator[2].classList.add("carousel-round-active");
+        // indicator[3].classList.remove("carousel-round-active");
+    }
+    else if (counter == 330) {
+        carouselCards[0].classList.add("cards-inactive");
+        carouselCards[1].classList.add("cards-inactive");
+        carouselCards[2].classList.add("cards-inactive");
+        carouselCards[3].classList.remove("cards-inactive");
+        
+        // show and hide text content function
+        setTimeout(() => {
+            cardTextContainer[0].classList.add("d-none");
+            cardTextContainer[1].classList.add("d-none");
+            cardTextContainer[2].classList.add("d-none");
+            cardTextContainer[3].classList.remove("d-none");
+        }, 300);
+
+        // the indicator sign
+        // indicator[0].classList.remove("carousel-round-active");
+        // indicator[1].classList.remove("carousel-round-active");
+        // indicator[2].classList.remove("carousel-round-active");
+        // indicator[3].classList.add("carousel-round-active");
+    }
+}
+funcSlide();
+
+
+
+
+// const indicatorClick =()=>{
+
+//     for(let i=0; i < indicator.length; i++){
+//         indicator[i].addEventListener("click",()=>{
+
+//         });
+
+//     }
+// }
+// indicatorClick();
+
+
+
+
+
+
+
+buttonLeft.addEventListener("click", () => {
+    funcSlideLeft();
+    funcSlide();
+});
+
+buttonRight.addEventListener("click", () => {
+    funcSlideRight();
+    funcSlide();
+})
+
+// setInterval(()=>{
+//     funcSlideLeft();
+//     funcSlide();
+// }, 4000);
