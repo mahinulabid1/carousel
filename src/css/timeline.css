@@ -51,7 +51,7 @@
 .timeline-btn-text {
     position: absolute;
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
     margin-top: -3px;
 }
 
@@ -143,11 +143,6 @@
     letter-spacing: 2px;
 }
 
-.timeline-para {
-    font-size: 16px;
-    line-height: 30px;
-    font-family: 'Roboto', sans-serif;
-}
 
 
 @media only screen and (max-width:1200px){
