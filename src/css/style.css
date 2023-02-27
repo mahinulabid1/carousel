@@ -12,12 +12,13 @@
 body {
     /* font-family: 'Roboto', sans-serif; */
     font-family: 'Bebas Neue', cursive;
+    background-color: #323232;
 }
 
 
 .btn-req{
     height:40px;
     width:40px;
-    background-color: red;
+    background-color: var(--main-color);
 }
 

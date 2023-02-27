@@ -9,6 +9,7 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+    /* justify-content: center; */
     color: #FFFFFF;
     position: relative;
 }
@@ -28,18 +29,23 @@
 
 
 
-.vertical-carousel>div:last-of-type {
+/* .vertical-carousel>div:last-of-type {
     width: 70%;
     position: relative;
+} */
+.content-section{
+    width:800px;
 }
-
 
 .timeline-menu {
     display: flex;
+    margin: 0 40px;
+
 }
 
 .timeline-menu>.text-container {
     margin-left: 20px;
+    width:80px;
 }
 
 .timeline-btn-text {
@@ -61,7 +67,7 @@
 .filler {
     position: absolute;
     width: 100%;
-    background: red;
+    background: var(--main-color);
     height: 18%;
 }
 
@@ -89,6 +95,10 @@
 
 .bt-active {
     background-color: var(--main-color);
+}
+
+.bt-white{
+    background-color:#FFFFFF;
 }
 
 
@@ -119,24 +129,79 @@
     position: relative;
 }
 
-.timeline-text-container {
-    position: absolute;
-    left: 44%;
-    top: 43%;
-    transform: translate(-50%, -50%);
-    max-width: 800px;
+.timeline-text-container{
+    position:relative;
+    top: 40%;
+    transform:translateY(-50%);
 }
-
 .timeline-heading {
     font-size: 56px;
     padding: 20px 0;
     border-bottom: 2px solid var(--main-color);
     display: inline-block;
     margin-bottom: 50px;
+    letter-spacing: 2px;
 }
 
 .timeline-para {
     font-size: 16px;
     line-height: 30px;
     font-family: 'Roboto', sans-serif;
+}
+
+
+@media only screen and (max-width:1200px){
+    .timeline-text-container {
+        width: 96%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    .timeline-heading {
+        font-size: 40px;
+    }
+    .timeline-btn-text {
+        font-size: 17px;
+    }
+    .timeline-text-container{
+        position:relative;
+        top: 45%;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    .timeline-menu {
+        display: flex;
+        /* margin: 0 20px; */
+    
+    }
+    .timeline-heading {
+        font-size: 30px;
+    }
+    .timeline-para{
+        font-size: 15px;
+        /* letter-spacing: 1px; */
+        word-spacing: 1px;
+    }
+    .timeline-text-container {
+        width: 90%;
+    }
+    .vertical-carousel {
+        height: 980px;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    .timeline-text-container{
+        top: 50%;
+    }
+    .vertical-carousel {
+        height: 1200px;
+    }
+}
+
+@media only screen and (max-width: 350px){
+    .vertical-carousel {
+        height: 1400px;
+    }
 }
