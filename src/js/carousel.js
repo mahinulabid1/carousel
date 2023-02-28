@@ -191,56 +191,37 @@ let touchEndPosition;
 carouselContainer.addEventListener("touchstart", (e) => {
     touchStartPosition = Math.floor(e.touches[0].clientX);
     console.log(touchStartPosition);
-    // console.log(e.screenX);
-    carouselContainer.addEventListener("touchmove", (e) => {
-        let x = Math.floor(e.touches[0].clientX);
-        touchEndPosition = touchStartPosition - x;
-    })
+});
 
-    carouselContainer.addEventListener("touchend", (e) => {
-        if (touchEndPosition < 0) {
-            // console.log(detectSwipe);
-            console.log("swipe right");
-            console.log(touchEndPosition);
-            funcSlideRight();
-            funcSlide();
-        }
-        else if (touchEndPosition > 0) {
-            // console.log(detectSwipe);
-            console.log("swipe left");
-            console.log(touchEndPosition);
-            funcSlideLeft();
-            funcSlide();
-        }
-    })
+carouselContainer.addEventListener("touchmove", (e) => {
+    let x = Math.floor(e.touches[0].clientX);
+    touchEndPosition = touchStartPosition - x;
+});
 
+carouselContainer.addEventListener("touchend", (e) => {
+    console.info("touch ENDED");
+    if (touchEndPosition < 0) {
+        // console.log(detectSwipe);
+        console.log("swipe right");
+        console.log(touchEndPosition);
+        funcSlideRight();
+        funcSlide();
+    }
+    else if (touchEndPosition > 0) {
+        // console.log(detectSwipe);
+        console.log("swipe left");
+        console.log(touchEndPosition);
+        funcSlideLeft();
+        funcSlide();
+    }
 })
 
-// carouselContainer.addEventListener("touchend",(e)=>{
-//     console.log(e.screenX);
-// })
 
-
-
-// carouselContainer.addEventListener("touchmove", (e) => {
-    // console.log(Math.floor(e.touches[0].clientX));
-
-// })
-
-// carouselContainer.addEventListener("mouseleave",(e)=>{
-//     // console.log("mouse down");
-//     console.log("mouse up "+e.offsetX);
-// })
 
 // setInterval(() => {
 //     funcSlideLeft();
 //     funcSlide();
 // }, 7000);
-
-
-
-
-
 
 
 buttonLeft.addEventListener("click", () => {
