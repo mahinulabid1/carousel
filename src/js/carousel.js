@@ -224,12 +224,12 @@ carouselContainer.addEventListener("touchend", (e) => {
 // }, 7000);
 
 
-buttonLeft.addEventListener("click", () => {
-    funcSlideLeft();
-    funcSlide();
-}); 
+// buttonLeft.addEventListener("click", () => {
+//     funcSlideLeft();
+//     funcSlide();
+// }); 
 
-buttonRight.addEventListener("click", () => {
-    funcSlideRight();
-    funcSlide();
-})
+// buttonRight.addEventListener("click", () => {
+//     funcSlideRight();
+//     funcSlide();
+// })

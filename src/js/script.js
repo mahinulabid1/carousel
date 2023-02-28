@@ -40,14 +40,14 @@ const SwitchSlider = {
         // COLOR FUNCTION
         filler.style.height = "18%";
         timelineBTN[0].classList.add("bt-active");
-        timelineBTN[0].classList.remove("bt-white");
+        // timelineBTN[0].classList.remove("bt-white");
 
         timelineBTN[1].classList.remove("bt-active");
-        timelineBTN[1].classList.remove("bt-white");
+        // timelineBTN[1].classList.remove("bt-white");
         timelineBTN[2].classList.remove("bt-active");
-        timelineBTN[2].classList.remove("bt-white");
+        // timelineBTN[2].classList.remove("bt-white");
         timelineBTN[3].classList.remove("bt-active");
-        timelineBTN[3].classList.remove("bt-white");
+        // timelineBTN[3].classList.remove("bt-white");
 
         // DATA FETCHING AND RENDERING
         let heading = DataSlider.sliderOne.h1;
@@ -61,12 +61,12 @@ const SwitchSlider = {
         // COLOR FUNCTION
         filler.style.height = "36%";
         timelineBTN[0].classList.remove("bt-active");
-        timelineBTN[0].classList.add("bt-white");
+        // timelineBTN[0].classList.add("bt-white");
         timelineBTN[1].classList.add("bt-active");
         timelineBTN[2].classList.remove("bt-active");
-        timelineBTN[2].classList.remove("bt-white");
+        // timelineBTN[2].classList.remove("bt-white");
         timelineBTN[3].classList.remove("bt-active");
-        timelineBTN[3].classList.remove("bt-white");
+        // timelineBTN[3].classList.remove("bt-white");
 
         // DATA FETCHING AND RENDERING
         let heading = DataSlider.sliderTwo.h1;
@@ -80,12 +80,12 @@ const SwitchSlider = {
         // COLOR FUNCTION
         filler.style.height = "54%";
         timelineBTN[0].classList.remove("bt-active");
-        timelineBTN[0].classList.add("bt-white");
+        // timelineBTN[0].classList.add("bt-white");
         timelineBTN[1].classList.remove("bt-active");
-        timelineBTN[1].classList.add("bt-white");
+        // timelineBTN[1].classList.add("bt-white");
         timelineBTN[2].classList.add("bt-active");
         timelineBTN[3].classList.remove("bt-active");
-        timelineBTN[3].classList.remove("bt-white");
+        // timelineBTN[3].classList.remove("bt-white");
 
         // DATA FETCHING AND RENDERING
         let heading = DataSlider.sliderThree.h1;
@@ -99,9 +99,9 @@ const SwitchSlider = {
         // COLOR FUNCTION
         filler.style.height = "73%";
         timelineBTN[0].classList.remove("bt-active");
-        timelineBTN[0].classList.add("bt-white");
+        // timelineBTN[0].classList.add("bt-white");
         timelineBTN[1].classList.remove("bt-active");
-        timelineBTN[2].classList.add("bt-white");
+        // timelineBTN[2].classList.add("bt-white");
         timelineBTN[2].classList.remove("bt-active");
         timelineBTN[3].classList.add("bt-active");
 
@@ -114,6 +114,7 @@ const SwitchSlider = {
         Bgimage.src = bgImage;
     }
 }
+
 
 
 
@@ -253,29 +254,20 @@ const checkWheelInput = () => {
         if (delta > 0) {
             // console.log('Scrolling down');
             scrollingStatus = "down";
-            // event.preventDefault();
 
         } else if (delta < 0) {
             // console.log('Scrolling up');
             scrollingStatus = "up";
-            // event.preventDefault();
         }
     });
 }
+
+
+// THE FUNCTION NEEDED TO CALL ITSELF 
+//OTHERWISE THE FIRST SLIDE ANIMATION DOESN'T WORK
 checkWheelInput();
 
 
-
-
-
-// TimelineContainer.addEventListener("mouseenter", () => {
-//     // console.log("x");
-    
-// })
-
-// TimelineContainer.addEventListener("mouseleave", () => {
-    
-// })
 
 
 
