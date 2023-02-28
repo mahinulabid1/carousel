@@ -162,14 +162,17 @@ funcSlide();
 
 
 carouselContainer.addEventListener("mouseenter", () => {
+    
     let mouseStart;
     carouselContainer.addEventListener("mousedown", (e) => {
+        carouselContainer.style.cursor="grabbing";
         // console.log("mouse down");
         // console.log("mouse down "+e.screenX);
         mouseStart = e.screenX;
 
     })
     carouselContainer.addEventListener("mouseup", (e) => {
+        carouselContainer.style.cursor="grab";
         // console.log("mouse up");
         // console.log("mouse up "+e.screenX);
         let mouseEnd = e.screenX;

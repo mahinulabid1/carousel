@@ -4,7 +4,8 @@ const verticalContentH1 = document.querySelector(".timeline-heading");
 const verticalContentPara = document.querySelector(".timeline-para");
 const Bgimage = document.querySelector(".carousel-bg");
 const TimelineContainer = document.querySelector(".vertical-carousel");
-
+const timeLineTextContent= document.querySelector(".timeline-text-container");
+const timeLineMenu= document.querySelector(".timeline-menu");
 
 
 // TIMELINE SLIDER DATA
@@ -138,106 +139,143 @@ for (let i = 0; i < timelineBTN.length; i++) {
     })
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // TIMELINE SCROLL BEHAVIOUR
-// let percentage;
-// let scrollingStatus;
-// TimelineContainer.addEventListener("mouseover", () => {
-//     // console.log("mouse over elements");
-//     let x = filler.clientHeight;
-//     let y = document.querySelector(".vertical-btn-container").clientHeight;
-//     percentage = Math.floor((x / y) * 100);
-//     console.log(percentage);
-//     // if (scrollingStatus == "down") {
+let percentage;
+let scrollingStatus;
+// ScrollingEffect
 
-//     // }
-//     // else if (scrollingStatus == "up") {
+// MAIN FUNCTION OF SCROLL BEHAVIOUR
+const ScrollingEffect = () => {
+    let y = document.querySelector(".vertical-btn-container").clientHeight;
 
-//     // }
-//     var scrollPosition = window.scrollY || window.pageYOffset;
-//     console.log(scrollPosition);
-// });
+    // AFTER MOUSEOVER IF I SCROLL -GET WHEN I START SCROLLING
+    let timer = null;
+    window.addEventListener('wheel', function () {
+        let x = filler.clientHeight;
+        percentage = Math.floor((x / y) * 100);
 
 
+        // console.log("function is scrolling");
+        if (timer !== null) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(function () {
+            // if the scrolling stopped - this function will be executed
+            // console.log("function stopped");
+            if (scrollingStatus == "down") {
+                if (percentage == 17) {
+                    // console.log("percentage" + percentage);
+                    SwitchSlider.sliderTwo();
+                }
+                else if (percentage == 36) {
+                    // console.log("percentage" + percentage);
+                    SwitchSlider.sliderThree();
+                }
+                else if (percentage == 53) {
+                    // console.log("percentage" + percentage);
+                    SwitchSlider.sliderFour();
+                }
+                else if (percentage == 72) {
+                    // console.log("percentage" + percentage);
+                    SwitchSlider.sliderOne();
+                }
+            }
+            else if (scrollingStatus == "up") {
+                if (percentage == 17) {
+                    // console.log("percentage" + percentage);
+                    SwitchSlider.sliderFour();
+                }
+                else if (percentage == 36) {
+                    // console.log("percentage" + percentage);
+                    SwitchSlider.sliderOne();
+                }
+                else if (percentage == 53) {
+                    // console.log("percentage" + percentage);
+                    SwitchSlider.sliderTwo();
+                }
+                else if (percentage == 72) {
+                    // console.log("percentage" + percentage);
+                    SwitchSlider.sliderThree();
+                }
+            }
+        }, 350);
+    }, false);
+}
+
+
+
+
+timeLineTextContent.addEventListener("mouseenter", () => {
+    // CALLING THE MAIN FUNCTION
+    ScrollingEffect();
+    document.body.style.overflowY = "hidden";
+});
+
+timeLineTextContent.addEventListener("mouseleave",()=>{
+    document.body.style.overflowY = "auto";
+});
+
+timeLineMenu.addEventListener("mouseenter", () => {
+    // CALLING THE MAIN FUNCTION
+    ScrollingEffect();
+    document.body.style.overflowY = "hidden";
+});
+
+timeLineMenu.addEventListener("mouseleave", () => {
+    document.body.style.overflowY = "auto";
+});
 
 
 
 
 
+// I have read ==== if it is scrolling down or up
+// done reading the scroll up or down
+// next task is take multiple input into one 
+// OR TAKE ONLY ONE INPUT
+const checkWheelInput = () => {
+    window.addEventListener('wheel', function (event) {
+        var delta = Math.sign(event.deltaY);
+        if (delta > 0) {
+            // console.log('Scrolling down');
+            scrollingStatus = "down";
+            // event.preventDefault();
+
+        } else if (delta < 0) {
+            // console.log('Scrolling up');
+            scrollingStatus = "up";
+            // event.preventDefault();
+        }
+    });
+}
+checkWheelInput();
 
 
 
 
 
 // TimelineContainer.addEventListener("mouseenter", () => {
-//     // if(window.scrollY>1317 || window.pageYOffset>1317){
-//     //     window.addEventListener('scroll', disableScroll);
-//     // }
-//     // console.log(window.pageYOffset);
-//     console.log("scrolling");
-//     // if (window.scrollY > 1317 || window.pageYOffset > 1317) {
-//     document.body.style.overflowY = "hidden";
-//     // }
-// });
+//     // console.log("x");
+    
+// })
 
 // TimelineContainer.addEventListener("mouseleave", () => {
-//     // window.removeEventListener('scroll', disableScroll);
-//     document.body.style.overflowY = "auto";
-
-// });
-
-
-
-
-// window.addEventListener('wheel', function (event) {
-//     var delta = Math.sign(event.deltaY);
-//     if (delta > 0) {
-//         console.log('Scrolling down');
-
-//         scrollingStatus = "down";
-
-
-
-
-//     } else if (delta < 0) {
-//         console.log('Scrolling up');
-//         scrollingStatus = "up";
-
-
-
-//     }
-
-
-//     this.setTimeout(()=>{
-//         if(scrollingStatus == "down"){
-//             if (percentage == 17) {
-//                 SwitchSlider.sliderTwo();
-//             }
-//             else if (percentage == 36) {
-//                 SwitchSlider.sliderThree();
-//             }
-//             else if (percentage == 53) {
-//                 SwitchSlider.sliderFour();
-//             }
-//             else if (percentage == 72) {
-//                 SwitchSlider.sliderOne();
-//             }
-//         }
-//         else if(scrollingStatus == "up"){
-//             if (percentage == 17) {
-//                 SwitchSlider.sliderFour();
-//             }
-//             else if (percentage == 36) {
-//                 SwitchSlider.sliderOne();
-//             }
-//             else if (percentage == 53) {
-//                 SwitchSlider.sliderTwo();
-//             }
-//             else if (percentage == 72) {
-//                 SwitchSlider.sliderThree();
-//             }
-//         }
-//     },300)
-// });
+    
+// })
 
 
 
