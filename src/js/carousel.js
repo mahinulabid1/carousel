@@ -153,7 +153,7 @@ funcSlide();
 // buttonLeft.addEventListener("click", () => {
 //     funcSlideLeft();
 //     funcSlide();
-// });
+// }); 
 
 // buttonRight.addEventListener("click", () => {
 //     funcSlideRight();
