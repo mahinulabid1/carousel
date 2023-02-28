@@ -446,7 +446,7 @@ carouselContainer.addEventListener("touchend",(e)=>{
 //     console.log("mouse up "+e.offsetX);
 // })
 
-setInterval(() => {
-    funcSlideLeft();
-    funcSlide();
-}, 7000);
+// setInterval(() => {
+//     funcSlideLeft();
+//     funcSlide();
+// }, 7000);
