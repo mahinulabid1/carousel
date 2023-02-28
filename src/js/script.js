@@ -2,7 +2,7 @@ const timelineBTN = document.querySelectorAll(".bt");
 const filler = document.querySelector(".filler");
 const verticalContentH1 = document.querySelector(".timeline-heading");
 const verticalContentPara = document.querySelector(".timeline-para");
-const Bgimage = document.querySelector(".carousel-bg");
+const Bgimage = document.querySelectorAll(".carousel-bg");
 const TimelineContainer = document.querySelector(".vertical-carousel");
 const timeLineTextContent= document.querySelector(".timeline-text-container");
 const timeLineMenu= document.querySelector(".timeline-menu");
@@ -17,18 +17,18 @@ const DataSlider = {
         bgImagePath: "./src/image/image1.jpg"
     },
     sliderTwo: {
-        h1: "SLIDER 1960",
-        p: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        h1: "1960",
+        p: "Technology has undoubtedly transformed the way we live our lives. From smartphones to laptops, we rely on technology to stay connected with loved ones, complete work tasks, and access information quickly. However, this increased reliance on technology has also led to some negative consequences. Many people report feeling more stressed and anxious due to the constant pressure to be connected and productive. Additionally, concerns about privacy and security are becoming increasingly prevalent as we share more and more of our personal information online. Despite these challenges, there is no doubt that technology will continue to play a significant role in shaping our world for years to come.",
         bgImagePath: "./src/image/image2.jpg"
     },
     sliderThree: {
-        h1: "SLIDER Counter",
-        p: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        h1: "COUNTER",
+        p: "Nature has a unique ability to inspire and rejuvenate us. Spending time in the great outdoors can have a profound impact on our mental and physical health, providing a much-needed escape from the stress and chaos of modern life. From breathtaking mountain vistas to serene ocean views, there is no shortage of natural wonders to explore. However, as our planet faces a growing environmental crisis, it is more important than ever to protect and preserve these natural wonders. By making small changes in our daily lives, such as reducing our use of plastic or driving less, we can help ensure that future generations are able to enjoy the same natural beauty that we do today.",
         bgImagePath: "./src/image/image3.jpg"
     },
     sliderFour: {
-        h1: "SLIDER Law",
-        p: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        h1: "LAW",
+        p: "Rain has a unique ability to both calm and invigorate us. The sound of raindrops tapping against a windowpane can be incredibly soothing, helping us to relax and unwind. At the same time, there is something invigorating about being caught in a sudden downpour, feeling the cool drops of rain on our skin and smelling the earthy scent of wet pavement. Rain is also essential for our planet's ecosystem, providing much-needed nourishment for plants and animals alike. However, as climate change continues to alter weather patterns around the world, we may see more frequent and severe droughts or floods. It is crucial that we take steps to reduce our carbon footprint and protect our planet's delicate balance, so that rain can continue to nourish and inspire us for generations to come.",
         bgImagePath: "./src/image/image4.jpg"
     }
 }
@@ -54,8 +54,21 @@ const SwitchSlider = {
         let para = DataSlider.sliderOne.p;
         verticalContentH1.textContent = heading;
         verticalContentPara.textContent = para;
-        let bgImage = DataSlider.sliderOne.bgImagePath;
-        Bgimage.src = bgImage;
+        // let bgImage = DataSlider.sliderOne.bgImagePath;
+        // Bgimage.src = bgImage;
+
+        // IMAGE BG OPACITY
+        Bgimage[0].classList.add("op-1");
+        Bgimage[0].classList.remove("op-0");
+
+        Bgimage[1].classList.add("op-0");
+        Bgimage[1].classList.remove("op-1");
+
+        Bgimage[2].classList.add("op-0");
+        Bgimage[2].classList.remove("op-1");
+
+        Bgimage[3].classList.add("op-0");
+        Bgimage[3].classList.remove("op-1");
     },
     sliderTwo: () => {
         // COLOR FUNCTION
@@ -71,10 +84,24 @@ const SwitchSlider = {
         // DATA FETCHING AND RENDERING
         let heading = DataSlider.sliderTwo.h1;
         let para = DataSlider.sliderTwo.p;
-        let bgImage = DataSlider.sliderTwo.bgImagePath;
+        // let bgImage = DataSlider.sliderTwo.bgImagePath;
         verticalContentH1.textContent = heading;
         verticalContentPara.textContent = para;
-        Bgimage.src = bgImage;
+        // Bgimage.src = bgImage;
+
+
+        // IMAGE BG OPACITY
+        Bgimage[0].classList.add("op-0");
+        Bgimage[0].classList.remove("op-1");
+
+        Bgimage[1].classList.add("op-1");
+        Bgimage[1].classList.remove("op-0");
+
+        Bgimage[2].classList.add("op-0");
+        Bgimage[2].classList.remove("op-1");
+
+        Bgimage[3].classList.add("op-0");
+        Bgimage[3].classList.remove("op-1");
     },
     sliderThree: () => {
         // COLOR FUNCTION
@@ -90,10 +117,23 @@ const SwitchSlider = {
         // DATA FETCHING AND RENDERING
         let heading = DataSlider.sliderThree.h1;
         let para = DataSlider.sliderThree.p;
-        let bgImage = DataSlider.sliderThree.bgImagePath;
+        // let bgImage = DataSlider.sliderThree.bgImagePath;
         verticalContentH1.textContent = heading;
         verticalContentPara.textContent = para;
-        Bgimage.src = bgImage;
+        // Bgimage.src = bgImage;
+
+        // IMAGE BG OPACITY
+        Bgimage[0].classList.add("op-0");
+        Bgimage[0].classList.remove("op-1");
+
+        Bgimage[1].classList.add("op-0");
+        Bgimage[1].classList.remove("op-1");
+
+        Bgimage[2].classList.add("op-1");
+        Bgimage[2].classList.remove("op-0");
+
+        Bgimage[3].classList.add("op-0");
+        Bgimage[3].classList.remove("op-1");
     },
     sliderFour: () => {
         // COLOR FUNCTION
@@ -108,10 +148,24 @@ const SwitchSlider = {
         // DATA FETCHING AND RENDERING
         let heading = DataSlider.sliderFour.h1;
         let para = DataSlider.sliderFour.p;
-        let bgImage = DataSlider.sliderFour.bgImagePath;
+        // let bgImage = DataSlider.sliderFour.bgImagePath;
         verticalContentH1.textContent = heading;
         verticalContentPara.textContent = para;
-        Bgimage.src = bgImage;
+        // Bgimage.src = bgImage;
+
+
+        // IMAGE BG OPACITY
+        Bgimage[0].classList.add("op-0");
+        Bgimage[0].classList.remove("op-1");
+
+        Bgimage[1].classList.add("op-0");
+        Bgimage[1].classList.remove("op-1");
+
+        Bgimage[2].classList.add("op-0");
+        Bgimage[2].classList.remove("op-1");
+
+        Bgimage[3].classList.add("op-1");
+        Bgimage[3].classList.remove("op-0");
     }
 }
 
@@ -157,7 +211,6 @@ for (let i = 0; i < timelineBTN.length; i++) {
 // TIMELINE SCROLL BEHAVIOUR
 let percentage;
 let scrollingStatus;
-// ScrollingEffect
 
 // MAIN FUNCTION OF SCROLL BEHAVIOUR
 const ScrollingEffect = () => {

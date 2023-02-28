@@ -25,9 +25,19 @@
     top: 0;
     left: 0;
     z-index: -2;
+    transition: all 2000ms;
 }
 
+.timeline-bg-container{
+    transition: all 600ms;
+}
 
+.op-0{
+    opacity:0;
+}
+.op-1{
+    opacity:1;
+}
 
 
 
