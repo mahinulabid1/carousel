@@ -1,7 +1,7 @@
 // CAROUSEL
 const buttonRight = document.querySelector(".ind-right");
 const buttonLeft = document.querySelector(".ind-left");
-const testContainer = document.querySelector(".test-container");
+const testContainer = document.querySelector(".inner-carousel-container");
 const carouselCards = document.querySelectorAll(".carousel-cards");
 const cardTextContainer = document.querySelectorAll(".cards-text-container");
 const indicator = document.querySelectorAll(".carousel-round-btn");
