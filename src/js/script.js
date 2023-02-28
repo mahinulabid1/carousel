@@ -246,9 +246,13 @@ const ScrollingEffect = () => {
 
 }
 
-timeLineTextContent.addEventListener("mouseenter", () => {
+TimelineContainer.addEventListener("mouseenter", () => {
     // CALLING THE MAIN FUNCTION
     ScrollingEffect();
+})
+
+timeLineTextContent.addEventListener("mouseenter", () => {
+    
     document.body.style.overflowY = "hidden";
 });
 
@@ -256,12 +260,4 @@ timeLineTextContent.addEventListener("mouseleave", () => {
     document.body.style.overflowY = "auto";
 });
 
-// timeLineMenu.addEventListener("mouseenter", () => {
-//     // CALLING THE MAIN FUNCTION
-//     ScrollingEffect();
-//     document.body.style.overflowY = "hidden";
-// });
 
-// timeLineMenu.addEventListener("mouseleave", () => {
-//     document.body.style.overflowY = "auto";
-// });
