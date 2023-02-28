@@ -5,6 +5,8 @@
 .carousel{
     margin-bottom: 200px;
     overflow-x:hidden;
+    user-select: none;
+    
 }
 
 .carousel-heading{
