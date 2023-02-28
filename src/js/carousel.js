@@ -150,18 +150,10 @@ funcSlide();
 
 
 
-// buttonLeft.addEventListener("click", () => {
-//     funcSlideLeft();
-//     funcSlide();
-// }); 
-
-// buttonRight.addEventListener("click", () => {
-//     funcSlideRight();
-//     funcSlide();
-// })
 
 
-carouselContainer.addEventListener("mouseenter", () => {
+
+// carouselContainer.addEventListener("mouseenter", () => {
     
     let mouseStart;
     carouselContainer.addEventListener("mousedown", (e) => {
@@ -191,26 +183,32 @@ carouselContainer.addEventListener("mouseenter", () => {
             funcSlide();
         }
     })
-})
+// })
 
 
 let touchStartPosition;
-carouselContainer.addEventListener("touchstart", (touchStart) => {
-    touchStartPosition = touchStart.touches[0].clientX;
-    // console.log(touchStartPosition);
+let touchEndPosition;
+carouselContainer.addEventListener("touchstart", (e) => {
+    touchStartPosition = Math.floor(e.touches[0].clientX);
+    console.log(touchStartPosition);
     // console.log(e.screenX);
     carouselContainer.addEventListener("touchmove", (e) => {
         let x = Math.floor(e.touches[0].clientX);
-        let swipeDetect = touchStartPosition - x;
-        if (swipeDetect < 0) {
+        touchEndPosition = touchStartPosition - x;
+    })
+
+    carouselContainer.addEventListener("touchend", (e) => {
+        if (touchEndPosition < 0) {
             // console.log(detectSwipe);
-            // console.log("swipe right");
+            console.log("swipe right");
+            console.log(touchEndPosition);
             funcSlideRight();
             funcSlide();
         }
-        else if (swipeDetect > 0) {
+        else if (touchEndPosition > 0) {
             // console.log(detectSwipe);
-            // console.log("swipe left");
+            console.log("swipe left");
+            console.log(touchEndPosition);
             funcSlideLeft();
             funcSlide();
         }
@@ -224,17 +222,33 @@ carouselContainer.addEventListener("touchstart", (touchStart) => {
 
 
 
-carouselContainer.addEventListener("touchmove", (e) => {
+// carouselContainer.addEventListener("touchmove", (e) => {
     // console.log(Math.floor(e.touches[0].clientX));
 
-})
+// })
 
 // carouselContainer.addEventListener("mouseleave",(e)=>{
 //     // console.log("mouse down");
 //     console.log("mouse up "+e.offsetX);
 // })
 
-setInterval(() => {
+// setInterval(() => {
+//     funcSlideLeft();
+//     funcSlide();
+// }, 7000);
+
+
+
+
+
+
+
+buttonLeft.addEventListener("click", () => {
     funcSlideLeft();
     funcSlide();
-}, 7000);
+}); 
+
+buttonRight.addEventListener("click", () => {
+    funcSlideRight();
+    funcSlide();
+})
