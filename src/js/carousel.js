@@ -8,39 +8,30 @@ const indicator = document.querySelectorAll(".carousel-round-btn");
 const carouselContainer = document.querySelector(".carousel");
 
 
-// other files
-// const timelineBTN = document.querySelectorAll(".bt");
-// const filler = document.querySelector(".filler");
-// const verticalContentH1 = document.querySelector(".timeline-heading");
-// const verticalContentPara = document.querySelector(".timeline-para");
-// const Bgimage = document.querySelector(".carousel-bg");
-// const TimelineContainer = document.querySelector(".vertical-carousel");
 
-// basic positioning
+// MAKING THE SECOND SLIDER 
 for (let i = 0; i < carouselCards.length; i++) {
     carouselCards[i].style.left = "-110%";
 }
 
 let counter = 110;
 const funcSlideRight = () => {
-    // console.log(counter);
     if (counter <= 0) {
         counter = 440;
     }
     counter = counter - 110;
     for (let i = 0; i < carouselCards.length; i++) {
-        // console.log(counter);
         carouselCards[i].style.left = "-" + counter + "%";
     }
 }
 
+// FUNCTION FOR SLIDING LEFT
 const funcSlideLeft = () => {
     if (counter >= 330) {
         counter = -110;
     }
     counter = counter + 110;
     for (let i = 0; i < carouselCards.length; i++) {
-        // console.log(counter);
         carouselCards[i].style.left = "-" + counter + "%";
     }
 }
@@ -128,62 +119,34 @@ const funcSlide = () => {
         indicator[3].classList.add("carousel-round-active");
     }
 }
+
+// THE FIRST SLIDING ANIMATION DOESN'T WORK IF THE FUNCTION DOESN'T CALL ITSELF
 funcSlide();
 
 
 
+let mouseStart;
+carouselContainer.addEventListener("mousedown", (e) => {
+    carouselContainer.style.cursor = "grabbing";
+    mouseStart = e.screenX;
+});
 
-// const indicatorClick =()=>{
+carouselContainer.addEventListener("mouseup", (e) => {
+    carouselContainer.style.cursor = "grab";
+    let mouseEnd = e.screenX;
+    let detectSwipe = mouseStart - mouseEnd;
+    if (detectSwipe < 0) {
+        // detection :user swiped right
+        funcSlideRight();
+        funcSlide();
+    }
+    else if (detectSwipe > 0) {
+        // detection :user swiped left
+        funcSlideLeft();
+        funcSlide();
+    }
+})
 
-//     for(let i=0; i < indicator.length; i++){
-//         indicator[i].addEventListener("click",()=>{
-
-//         });
-
-//     }
-// }
-// indicatorClick();
-
-
-
-
-
-
-
-
-
-
-// carouselContainer.addEventListener("mouseenter", () => {
-    
-    let mouseStart;
-    carouselContainer.addEventListener("mousedown", (e) => {
-        carouselContainer.style.cursor="grabbing";
-        // console.log("mouse down");
-        // console.log("mouse down "+e.screenX);
-        mouseStart = e.screenX;
-
-    })
-    carouselContainer.addEventListener("mouseup", (e) => {
-        carouselContainer.style.cursor="grab";
-        // console.log("mouse up");
-        // console.log("mouse up "+e.screenX);
-        let mouseEnd = e.screenX;
-        let detectSwipe = mouseStart - mouseEnd;
-        if (detectSwipe < 0) {
-            // console.log(detectSwipe);
-            // console.log("swipe right");
-            funcSlideRight();
-            funcSlide();
-
-        }
-        else if (detectSwipe > 0) {
-            // console.log(detectSwipe);
-            // console.log("swipe left");
-            funcSlideLeft();
-            funcSlide();
-        }
-    })
-// })
 
 
 let touchStartPosition;
@@ -217,19 +180,8 @@ carouselContainer.addEventListener("touchend", (e) => {
 })
 
 
-
 // setInterval(() => {
 //     funcSlideLeft();
 //     funcSlide();
 // }, 7000);
 
-
-// buttonLeft.addEventListener("click", () => {
-//     funcSlideLeft();
-//     funcSlide();
-// }); 
-
-// buttonRight.addEventListener("click", () => {
-//     funcSlideRight();
-//     funcSlide();
-// })

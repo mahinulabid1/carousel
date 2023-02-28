@@ -3,9 +3,10 @@ const filler = document.querySelector(".filler");
 const verticalContentH1 = document.querySelector(".timeline-heading");
 const verticalContentPara = document.querySelector(".timeline-para");
 const Bgimage = document.querySelectorAll(".carousel-bg");
-const TimelineContainer = document.querySelector(".vertical-carousel");
+const TimelineContainer = document.querySelector(".timeline-carousel");
 const timeLineTextContent= document.querySelector(".timeline-text-container");
 const timeLineMenu= document.querySelector(".timeline-menu");
+const timeLineBtnContainer= document.querySelector(".timeline-btn-container");
 
 
 // TIMELINE SLIDER DATA
@@ -214,7 +215,7 @@ let scrollingStatus;
 
 // MAIN FUNCTION OF SCROLL BEHAVIOUR
 const ScrollingEffect = () => {
-    let y = document.querySelector(".vertical-btn-container").clientHeight;
+    let y = timeLineBtnContainer.clientHeight;
 
     // AFTER MOUSEOVER IF I SCROLL -GET WHEN I START SCROLLING
     let timer = null;

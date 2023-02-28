@@ -18,14 +18,12 @@
 .carousel-container{
     width: 100%;
     height: 800px;
-    /* background:green; */
     position:relative;
 }
 
 
 
 .test-container{
-    /* border:3px solid red; */
     height:  740px;
     width: 732px;
     position:absolute;
@@ -40,7 +38,6 @@
 
 .carousel-cards{
     height: 100%;
-    /* background:yellow; */
     position:relative;
     transition: all 400ms;
 }
@@ -80,7 +77,6 @@
 
 .carousel-indicator-container{
     position:relative;
-    /* bottom: 0; */
     left: 50%;
     transform:translateX(-50%);
     

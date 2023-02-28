@@ -2,14 +2,20 @@
     --main-color: #D94436;
 }
 
-/* vertical carousel */
+.op-0{
+    opacity:0;
+}
+.op-1{
+    opacity:1;
+}
+
+/* TIMELINE CAROUSEL */
 /* ================================================ */
-.vertical-carousel {
+.timeline-carousel {
     height: 780px;
     width: 100%;
     display: flex;
     justify-content: space-around;
-    /* justify-content: center; */
     color: #FFFFFF;
     position: relative;
     margin-bottom:192px;
@@ -32,19 +38,7 @@
     transition: all 600ms;
 }
 
-.op-0{
-    opacity:0;
-}
-.op-1{
-    opacity:1;
-}
 
-
-
-/* .vertical-carousel>div:last-of-type {
-    width: 70%;
-    position: relative;
-} */
 .content-section{
     width:800px;
 }
@@ -63,13 +57,11 @@
 .timeline-btn-text {
     position: absolute;
     font-size: 20px;
-    /* font-family: 'Roboto', sans-serif; */
     margin-top: -3px;
 }
 
 
-/* the white line with 100% height */
-.vertical-btn-container {
+.timeline-btn-container {
     height: 100%;
     width: 1px;
     background: #3E3D3D;
@@ -85,7 +77,7 @@
 
 
 
-/* the round buttons */
+/* round buttons styles */
 .bt {
     height: 16px;
     width: 16px;
@@ -104,16 +96,12 @@
     height: 24px;
     width: 24px;
 }
-
 .bt-active {
     background-color: var(--main-color);
 }
 
-.bt-white{
-    background-color:#FFFFFF;
-}
 
-
+/* POSITION OF THE ROUND BUTTONS */
 .bt:nth-of-type(1),
 .timeline-btn-text:nth-of-type(1) {
     top: 18%;
@@ -137,7 +125,7 @@
 
 
 
-.vertical-carousel>.content-section {
+.timeline-carousel>.content-section {
     position: relative;
 }
 
@@ -188,13 +176,12 @@
     }
     .timeline-para{
         font-size: 15px;
-        /* letter-spacing: 1px; */
         word-spacing: 1px;
     }
     .timeline-text-container {
         width: 90%;
     }
-    .vertical-carousel {
+    .timeline-carousel {
         height: 980px;
     }
 }
@@ -203,13 +190,13 @@
     .timeline-text-container{
         top: 50%;
     }
-    .vertical-carousel {
+    .timeline-carousel {
         height: 1200px;
     }
 }
 
 @media only screen and (max-width: 350px){
-    .vertical-carousel {
+    .timeline-carousel {
         height: 1400px;
     }
 }
