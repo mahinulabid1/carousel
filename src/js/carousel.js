@@ -180,8 +180,8 @@ carouselContainer.addEventListener("touchend", (e) => {
 })
 
 
-// setInterval(() => {
-//     funcSlideLeft();
-//     funcSlide();
-// }, 7000);
+setInterval(() => {
+    funcSlideLeft();
+    funcSlide();
+}, 8000);
 
