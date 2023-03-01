@@ -9,6 +9,7 @@ const timeLineMenu = document.querySelector(".timeline-menu");
 const timeLineBtnContainer = document.querySelector(".timeline-btn-container");
 
 
+
 // TIMELINE SLIDER DATA
 // ====================================
 const DataSlider = {
@@ -43,6 +44,13 @@ const SwitchSlider = {
         timelineBTN[1].classList.remove("bt-active");
         timelineBTN[2].classList.remove("bt-active");
         timelineBTN[3].classList.remove("bt-active");
+
+
+        // removing previous class
+        timelineBTN[0].classList.remove("bt-previous");
+        timelineBTN[1].classList.remove("bt-previous");
+        timelineBTN[2].classList.remove("bt-previous");
+        timelineBTN[3].classList.remove("bt-previous");
 
 
         // DATA FETCHING FROM OBJECT(DataSlider) AND REPLACING
@@ -81,6 +89,12 @@ const SwitchSlider = {
         verticalContentH1.textContent = heading;
         verticalContentPara.textContent = para;
 
+        
+        // removing previous class
+        timelineBTN[0].classList.add("bt-previous");
+        timelineBTN[1].classList.remove("bt-previous");
+        timelineBTN[2].classList.remove("bt-previous");
+        timelineBTN[3].classList.remove("bt-previous");
 
 
         // IMAGE OPACITY HANDLER
@@ -111,6 +125,12 @@ const SwitchSlider = {
         verticalContentH1.textContent = heading;
         verticalContentPara.textContent = para;
 
+        // removing previous class
+        timelineBTN[0].classList.add("bt-previous");
+        timelineBTN[1].classList.add("bt-previous");
+        timelineBTN[2].classList.remove("bt-previous");
+        timelineBTN[3].classList.remove("bt-previous");
+
 
         // IMAGE OPACITY HANDLER
         Bgimage[0].classList.add("op-0");
@@ -137,6 +157,13 @@ const SwitchSlider = {
         let para = DataSlider.sliderFour.p;
         verticalContentH1.textContent = heading;
         verticalContentPara.textContent = para;
+
+
+        // removing previous class
+        timelineBTN[0].classList.add("bt-previous");
+        timelineBTN[1].classList.add("bt-previous");
+        timelineBTN[2].classList.add("bt-previous");
+        timelineBTN[3].classList.remove("bt-previous");
 
         // IMAGE OPACITY HANDLER
         Bgimage[0].classList.add("op-0");
@@ -174,90 +201,107 @@ for (let i = 0; i < timelineBTN.length; i++) {
     })
 }
 
-
+setInterval(()=>{
+    console.log('working interval');
+    if(timelineBTN[0].classList.contains('bt-active')) {
+        console.log("switch slider two");
+        SwitchSlider.sliderTwo();
+    }else if(timelineBTN[1].classList.contains('bt-active')){
+        console.log("switch slider three");
+        SwitchSlider.sliderThree();
+    }
+    else if(timelineBTN[2].classList.contains('bt-active')){
+        console.log("switch slider four");
+        SwitchSlider.sliderFour();
+    }
+    else if(timelineBTN[3].classList.contains('bt-active')){
+        console.log("switch slider 1");
+        SwitchSlider.sliderOne();
+    }
+}, 5000);
 
 // TIMELINE SCROLL BEHAVIOUR
-let percentage;
-let scrollingStatus;
-let ActivateScroll = false;
+// let percentage;
+// let scrollingStatus;
+// let ActivateScroll = false;
 
 
-// THIS FUNCTION TELLS IF USER SCROLLED UP OR DOWN
-window.addEventListener('wheel', function (event) {
-    var delta = Math.sign(event.deltaY);
-    if (delta > 0) {
-        scrollingStatus = "down";
+// // THIS FUNCTION TELLS IF USER SCROLLED UP OR DOWN
+// window.addEventListener('wheel', function (event) {
+//     var delta = Math.sign(event.deltaY);
+//     if (delta > 0) {
+//         scrollingStatus = "down";
 
-    } else if (delta < 0) {
-        scrollingStatus = "up";
-    }
-});
+//     } else if (delta < 0) {
+//         scrollingStatus = "up";
+//     }
+// });
 
 
 // MAIN FUNCTION OF SCROLL BEHAVIOUR
-const ScrollingEffect = () => {
-    let y = timeLineBtnContainer.clientHeight;
+// const ScrollingEffect = () => {
+//     let y = timeLineBtnContainer.clientHeight;
 
-    // AFTER MOUSEOVER IF I SCROLL, GET DATA ABOUT- WHEN I START SCROLLING
-    let timer = null;
-    window.addEventListener('wheel', function () {
-        let x = filler.clientHeight;
-        percentage = Math.floor((x / y) * 100);
+//     // AFTER MOUSEOVER IF I SCROLL, GET DATA ABOUT- WHEN I START SCROLLING
+//     let timer = null;
+//     window.addEventListener('wheel', function () {
+//         let x = filler.clientHeight;
+//         percentage = Math.floor((x / y) * 100);
 
 
-        // THIS if statement and timer(setTimeout) functions run some code when user stopped scrolling
-        // this is important for preventing multiple responsve from the events
-        if (timer !== null) {
-            clearTimeout(timer);
-        }
-        timer = setTimeout(function () {
-            // if the scrolling stopped - this function will be executed
-            if (scrollingStatus == "down") {
-                if (percentage == 17) {
-                    SwitchSlider.sliderTwo();
-                }
-                else if (percentage == 36) {
-                    SwitchSlider.sliderThree();
-                }
-                else if (percentage == 53) {
-                    SwitchSlider.sliderFour();
-                }
-                else if (percentage == 72) {
-                    SwitchSlider.sliderOne();
-                }
-            }
-            else if (scrollingStatus == "up") {
-                if (percentage == 17) {
-                    SwitchSlider.sliderFour();
-                }
-                else if (percentage == 36) {
-                    SwitchSlider.sliderOne();
-                }
-                else if (percentage == 53) {
-                    SwitchSlider.sliderTwo();
-                }
-                else if (percentage == 72) {
-                    SwitchSlider.sliderThree();
-                }
-            }
-        }, 350);
+//         // THIS if statement and timer(setTimeout) functions run some code when user stopped scrolling
+//         // this is important for preventing multiple responsve from the events
+//         if (timer !== null) {
+//             clearTimeout(timer);
+//         }
+//         timer = setTimeout(function () {
+//             // if the scrolling stopped - this function will be executed
+//             if (scrollingStatus == "down") {
+//                 if (percentage == 17) {
+//                     SwitchSlider.sliderTwo();
+//                 }
+//                 else if (percentage == 36) {
+//                     SwitchSlider.sliderThree();
+//                 }
+//                 else if (percentage == 53) {
+//                     SwitchSlider.sliderFour();
+//                 }
+//                 else if (percentage == 72) {
+//                     SwitchSlider.sliderOne();
+//                 }
+//             }
+//             else if (scrollingStatus == "up") {
+//                 if (percentage == 17) {
+//                     SwitchSlider.sliderFour();
+//                 }
+//                 else if (percentage == 36) {
+//                     SwitchSlider.sliderOne();
+//                 }
+//                 else if (percentage == 53) {
+//                     SwitchSlider.sliderTwo();
+//                 }
+//                 else if (percentage == 72) {
+//                     SwitchSlider.sliderThree();
+//                 }
+//             }
+//         }, 350);
 
-    }, false);
+//     }, false);
 
-}
+// }
 
-TimelineContainer.addEventListener("mouseenter", () => {
-    // CALLING THE MAIN FUNCTION
-    ScrollingEffect();
-})
+// TimelineContainer.addEventListener("mouseenter", () => {
+//     // CALLING THE MAIN FUNCTION
+//     ScrollingEffect();
+// })
 
-timeLineTextContent.addEventListener("mouseenter", () => {
+// timeLineTextContent.addEventListener("mouseenter", () => {
     
-    document.body.style.overflowY = "hidden";
-});
+//     document.body.style.overflowY = "hidden";
+// });
 
-timeLineTextContent.addEventListener("mouseleave", () => {
-    document.body.style.overflowY = "auto";
-});
+// timeLineTextContent.addEventListener("mouseleave", () => {
+//     document.body.style.overflowY = "auto";
+// });
 
 

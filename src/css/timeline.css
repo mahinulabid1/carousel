@@ -99,9 +99,13 @@
     width: 24px;
 }
 
-.bt-active {
+.bt-active,
+.bt-previous {
     background-color: var(--main-color);
 }
+
+
+
 
 
 /* POSITION OF THE ROUND BUTTONS */
@@ -141,7 +145,7 @@
 
 .timeline-heading {
     font-size: 56px;
-    padding: 20px 0;
+    padding: 6px 0;
     border-bottom: 2px solid var(--main-color);
     display: inline-block;
     margin-bottom: 50px;

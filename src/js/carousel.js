@@ -11,15 +11,15 @@ const carouselContainer = document.querySelector(".carousel");
 
 // MAKING THE SECOND SLIDER 
 for (let i = 0; i < carouselCards.length; i++) {
-    carouselCards[i].style.left = "-110%";
+    carouselCards[i].style.left = "-101%";
 }
 
-let counter = 110;
+let counter = 101;
 const funcSlideRight = () => {
     if (counter <= 0) {
-        counter = 440;
+        counter = 404;
     }
-    counter = counter - 110;
+    counter = counter - 101;
     for (let i = 0; i < carouselCards.length; i++) {
         carouselCards[i].style.left = "-" + counter + "%";
     }
@@ -27,10 +27,10 @@ const funcSlideRight = () => {
 
 // FUNCTION FOR SLIDING LEFT
 const funcSlideLeft = () => {
-    if (counter >= 330) {
-        counter = -110;
+    if (counter >= 303) {
+        counter = -101;
     }
-    counter = counter + 110;
+    counter = counter + 101;
     for (let i = 0; i < carouselCards.length; i++) {
         carouselCards[i].style.left = "-" + counter + "%";
     }
@@ -58,7 +58,7 @@ const funcSlide = () => {
         indicator[2].classList.remove("carousel-round-active");
         indicator[3].classList.remove("carousel-round-active");
     }
-    else if (counter == 110) {
+    else if (counter == 101) {
         carouselCards[0].classList.add("cards-inactive");
         carouselCards[1].classList.remove("cards-inactive");
         carouselCards[2].classList.add("cards-inactive");
@@ -78,7 +78,7 @@ const funcSlide = () => {
         indicator[2].classList.remove("carousel-round-active");
         indicator[3].classList.remove("carousel-round-active");
     }
-    else if (counter == 220) {
+    else if (counter == 202) {
         carouselCards[0].classList.add("cards-inactive");
         carouselCards[1].classList.add("cards-inactive");
         carouselCards[2].classList.remove("cards-inactive");
@@ -98,7 +98,7 @@ const funcSlide = () => {
         indicator[2].classList.add("carousel-round-active");
         indicator[3].classList.remove("carousel-round-active");
     }
-    else if (counter == 330) {
+    else if (counter == 303) {
         carouselCards[0].classList.add("cards-inactive");
         carouselCards[1].classList.add("cards-inactive");
         carouselCards[2].classList.add("cards-inactive");
