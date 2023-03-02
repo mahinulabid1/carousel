@@ -9,6 +9,24 @@ const timeLineMenu = document.querySelector(".timeline-menu");
 const timeLineBtnContainer = document.querySelector(".timeline-btn-container");
 
 
+// DEVICE WIDTH STATUS
+let devicestatus;
+const WidthCheck = () => {
+    let x = window.innerWidth;
+    if (x <= 700) {
+        console.info("mobile device");
+        devicestatus = "smallScreen";
+    }
+    else if (x > 700) {
+        console.info("desktop device");
+        devicestatus= "bigScreen";
+    }
+}
+WidthCheck();
+window.addEventListener("resize", () => {
+    WidthCheck();
+});
+
 
 // TIMELINE SLIDER DATA
 // ====================================
@@ -37,9 +55,10 @@ const DataSlider = {
 
 // TIMELINE SLIDER FUNCTION
 // ==============================================================
-const SwitchSlider = {
-    sliderOne: () => {
-        filler.style.height = "18%";
+
+
+const ClassHandlerTimeline=(timeLineState)=>{
+    if(timeLineState == 1){
         timelineBTN[0].classList.add("bt-active");
         timelineBTN[1].classList.remove("bt-active");
         timelineBTN[2].classList.remove("bt-active");
@@ -73,23 +92,22 @@ const SwitchSlider = {
 
         Bgimage[3].classList.add("op-0");
         Bgimage[3].classList.remove("op-1");
-    },
-    sliderTwo: () => {
-        filler.style.height = "36%";
+    }
+    else if(timeLineState == 2){
         timelineBTN[0].classList.remove("bt-active");
         timelineBTN[1].classList.add("bt-active");
         timelineBTN[2].classList.remove("bt-active");
         timelineBTN[3].classList.remove("bt-active");
 
 
-       // DATA FETCHING FROM OBJECT(DataSlider) AND REPLACING
+        // DATA FETCHING FROM OBJECT(DataSlider) AND REPLACING
         let heading = DataSlider.sliderTwo.h1;
         let para = DataSlider.sliderTwo.p;
 
         verticalContentH1.textContent = heading;
         verticalContentPara.textContent = para;
 
-        
+
         // removing previous class
         timelineBTN[0].classList.add("bt-previous");
         timelineBTN[1].classList.remove("bt-previous");
@@ -109,9 +127,8 @@ const SwitchSlider = {
 
         Bgimage[3].classList.add("op-0");
         Bgimage[3].classList.remove("op-1");
-    },
-    sliderThree: () => {
-        filler.style.height = "54%";
+    }
+    else if(timeLineState == 3){
         timelineBTN[0].classList.remove("bt-active");
         timelineBTN[1].classList.remove("bt-active");
         timelineBTN[2].classList.add("bt-active");
@@ -144,9 +161,8 @@ const SwitchSlider = {
 
         Bgimage[3].classList.add("op-0");
         Bgimage[3].classList.remove("op-1");
-    },
-    sliderFour: () => {
-        filler.style.height = "73%";
+    }
+    else if(timeLineState == 4){
         timelineBTN[0].classList.remove("bt-active");
         timelineBTN[1].classList.remove("bt-active");
         timelineBTN[2].classList.remove("bt-active");
@@ -181,22 +197,91 @@ const SwitchSlider = {
 }
 
 
+
+
+
+
+
+
+
+// SLIDER FOR DESKTOP
+const SwitchSliderDesktop = {
+    sliderOne: () => {
+        filler.style.height = "18%";
+        ClassHandlerTimeline(1);
+    },
+    sliderTwo: () => {
+        filler.style.height = "36%";
+        ClassHandlerTimeline(2);
+    },
+    sliderThree: () => {
+        filler.style.height = "54%";
+        ClassHandlerTimeline(3);
+    },
+    sliderFour: () => {
+        filler.style.height = "73%";
+        ClassHandlerTimeline(4);
+    }
+}
+
+// SLIDER FUNCTION FOR MOBILE AND TABLET
+const SwitchSliderSmallDevice = {
+    sliderOne: () => {
+        console.log("0001");
+        filler.style.width = "10%";
+        ClassHandlerTimeline(1);
+    },
+    sliderTwo: () => {
+        console.log("0002");
+        filler.style.width = "32%";
+        ClassHandlerTimeline(2);
+    },
+    sliderThree: () => {
+        filler.style.width = "56%";
+        ClassHandlerTimeline(3);
+    },
+    sliderFour: () => {
+        filler.style.width = "80%";
+        ClassHandlerTimeline(4);
+    }
+}
+
+
+
 // CLICK EVENTS FOR TIMELINE
 for (let i = 0; i < timelineBTN.length; i++) {
     timelineBTN[i].addEventListener("click", () => {
-        let ListClass = timelineBTN[i].classList;
-        if (ListClass.contains("bt-1")) {
-            SwitchSlider.sliderOne();
-        }
-        else if (ListClass.contains("bt-2")) {
-            SwitchSlider.sliderTwo();
 
+        let ListClass = timelineBTN[i].classList;
+        if (ListClass.contains("bt-1") && devicestatus =="bigScreen") {
+            SwitchSliderDesktop.sliderOne();
+            console.log("switching to slider one");
         }
-        else if (ListClass.contains("bt-3")) {
-            SwitchSlider.sliderThree();
+        else if (ListClass.contains("bt-2") && devicestatus =="bigScreen") {
+            SwitchSliderDesktop.sliderTwo();
+            console.log("switching to slider two");
         }
-        else if (ListClass.contains("bt-4")) {
-            SwitchSlider.sliderFour();
+        else if (ListClass.contains("bt-3") && devicestatus =="bigScreen") {
+            SwitchSliderDesktop.sliderThree();
+        }
+        else if (ListClass.contains("bt-4") && devicestatus =="bigScreen") {
+            SwitchSliderDesktop.sliderFour();
+        }
+
+
+        else if(ListClass.contains("bt-1") && devicestatus =="smallScreen"){
+            console.log("switching to slider one");
+            SwitchSliderSmallDevice.sliderOne();
+        }
+        else if(ListClass.contains("bt-2") && devicestatus =="smallScreen"){
+            console.log("switching to slider two");
+            SwitchSliderSmallDevice.sliderTwo();
+        }
+        else if(ListClass.contains("bt-3") && devicestatus =="smallScreen"){
+            SwitchSliderSmallDevice.sliderThree();
+        }
+        else if(ListClass.contains("bt-4") && devicestatus =="smallScreen"){
+            SwitchSliderSmallDevice.sliderFour();
         }
     })
 }
@@ -205,18 +290,39 @@ setInterval(()=>{
     console.log('working interval');
     if(timelineBTN[0].classList.contains('bt-active')) {
         console.log("switch slider two");
-        SwitchSlider.sliderTwo();
+        if(devicestatus =="bigscreen"){
+            SwitchSliderDesktop.sliderTwo();
+        }
+        else if(devicestatus =="smallScreen"){
+            SwitchSliderSmallDevice.sliderTwo();
+        }
+        
     }else if(timelineBTN[1].classList.contains('bt-active')){
         console.log("switch slider three");
-        SwitchSlider.sliderThree();
+        if(devicestatus =="bigscreen"){
+            SwitchSliderDesktop.sliderThree();
+        }
+        else if(devicestatus =="smallScreen"){
+            SwitchSliderSmallDevice.sliderThree();
+        }
     }
     else if(timelineBTN[2].classList.contains('bt-active')){
         console.log("switch slider four");
-        SwitchSlider.sliderFour();
+        if(devicestatus =="bigscreen"){
+            SwitchSliderDesktop.sliderFour();
+        }
+        else if(devicestatus =="smallScreen"){
+            SwitchSliderSmallDevice.sliderFour();
+        }
     }
     else if(timelineBTN[3].classList.contains('bt-active')){
         console.log("switch slider 1");
-        SwitchSlider.sliderOne();
+        if(devicestatus =="bigscreen"){
+            SwitchSliderDesktop.sliderOne();
+        }
+        else if(devicestatus =="smallScreen"){
+            SwitchSliderSmallDevice.sliderOne();
+        }
     }
 }, 5000);
 
