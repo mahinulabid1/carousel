@@ -170,10 +170,6 @@
 }
 
 @media only screen and (max-width: 800px) {
-    /* .timeline-heading {
-        font-size: 40px;
-    } */
-
     .timeline-btn-text {
         font-size: 17px;
     }
@@ -304,24 +300,12 @@
         font-size: 40px;
     }
 
-    /* .timeline-para {
-        font-size: 15px;
-        word-spacing: 1px;
-    } */
-
-    /* .timeline-text-container {
-        width: 90%;
-    } */
-
     .timeline-carousel {
         height: 850px;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    /* .timeline-text-container {
-        top: 50%;
-    } */
 
     .timeline-carousel {
         height: 900px;
@@ -329,11 +313,6 @@
 }
 
 @media only screen and (max-width: 370px) {
-
-    /* .timeline-carousel {
-        flex-direction: column;
-        height:494px;
-    } */
     .timeline-carousel {
         height: 950px;
     }
